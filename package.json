@@ -1,0 +1,22 @@
+{
+  "name": "discordbotintroandouttrosongs",
+  "version": "1.0.0",
+  "description": "JsDiscordBot",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/bot.js",
+    "dev": "nodemon ./src/bot.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "github:discordjs/opus",
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "ffmpeg": "^0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
+    "nodemon": "^2.0.7",
+    "ytdl-core": "^4.5.0"
+  }
+}
