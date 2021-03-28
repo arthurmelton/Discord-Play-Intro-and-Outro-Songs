@@ -48,7 +48,7 @@ client.on('message', (message) => {
 						return
 					}
 				}
-				//console.log(newMember);
+				oldMember.guild.channels.cache.get(oldMember.channelID).join();
 				if (oldMember.channelID === null && newMember.channelID !== null) {
 					console.log("User joined!");
 					//const stream = ytdl(`https://www.youtube.com/watch?v=MFw3E6X5aoA`, { filter : 'audioonly' });
