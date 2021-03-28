@@ -30,29 +30,35 @@ client.on('message', (message) => {
 
 		const streamOptions = { seek: 0, volume: 1 };
 		voice.channel.join().then(connection => {
-			console.log(connection);
-            const stream = ytdl(`${args[0]}`, { filter : 'audioonly' });
+
+            //const stream = ytdl(`https://www.youtube.com/watch?v=MFw3E6X5aoA`, { filter : 'audioonly' });
+            const stream = 'joined.mp3';
             const dispatcher = connection.play(stream, streamOptions);
-            dispatcher.on("end", end => {
-                console.log("left channel");
-                voiceChannel.leave();
-            });
+            client.on('voiceStateUpdate', (oldMember, newMember) => {
+			  	console.log(oldMember);
+			  	if (oldMember.serverDeaf !== null) {
+			  		if (oldMember.serverDeaf === newMember.serverDeaf && oldMember.serverMute === newMember.serverMute && oldMember.selfDeaf == newMember.selfDeaf && oldMember.selfMute === newMember.selfMute && oldMember.selfVideo === newMember.selfVideo && oldMember.streaming === newMember.streaming) {}else {return} 
+			  	}
+			  	//console.log(newMember);
+			    if (oldMember.channelID === null && newMember.channelID !== null) {
+			      	console.log("User joined!");
+			      	//const stream = ytdl(`https://www.youtube.com/watch?v=MFw3E6X5aoA`, { filter : 'audioonly' });
+            		const stream = 'joined.mp3';
+            		const dispatcher = connection.play(stream, streamOptions);
+			    } else {
+			      	console.log("User left!");
+			      	//const stream = ytdl(`https://www.youtube.com/watch?v=mN7ai6ql8bQ`, { filter : 'audioonly' });
+            		const stream = 'left.mp3';
+            		const dispatcher = connection.play(stream, streamOptions);
+			    }
+			    if (oldMember.guild.channels.cache.get(oldMember.channelID)) {
+				    if (oldMember.guild.channels.cache.get(oldMember.channelID).members.size === 1) {
+				    	oldMember.guild.channels.cache.get(oldMember.channelID).leave();
+				    	return;
+				    }
+				}
+			})
         }).catch(err => console.log(err));
-	}
-	if (commandName === "play") {
-		const { voice } = message.member;
-		if (!voice.channelID) {
-			message.reply("You have to be in a voice channel");
-			return;
-		}
-		const streamOptions = { seek: 0, volume: 1 };
-		const connection = message.member.voice.channel.join();
-        const stream = ytdl(`${args[0]}`, { filter : 'audioonly' });
-        const dispatcher = connection.play(stream, streamOptions);
-        dispatcher.on("end", end => {
-            console.log("left channel");
-            voiceChannel.leave();
-        });
 	}
 
 })
