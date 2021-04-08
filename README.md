@@ -1,7 +1,10 @@
 # Discord-Play-Intro-and-Outro-Songs
+<h3>Dependency</h3>
+- `Git`
+- `Node.js`
 
-to run this you need `Git` and `Node.js` 
-then to install run
+<h3>Install</h3>
+run
 ```
 git clone https://github.com/AMTitan/Discord-Play-Intro-and-Outro-Songs.git
 cd ./Discord-Play-Intro-and-Outro-Songs
@@ -15,4 +18,5 @@ then
 ```
 npm run dev
 ```
-then if you want you can change the 2 `.mp3`s to change the sounds
+<h3>Customize</h3>
+Change the 2 `.mp3` to change the sounds
