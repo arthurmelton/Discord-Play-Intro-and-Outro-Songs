@@ -5,6 +5,7 @@
 - `Node.js`
 
 <h3>Install</h3>
+
 run
 
 ```
@@ -23,4 +24,5 @@ then
 npm run dev
 ```
 <h3>Customize</h3>
+
 Change the 2 `.mp3` to change the sounds
