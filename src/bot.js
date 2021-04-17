@@ -9,7 +9,7 @@ const PREFIX = "!S";
 
 client.on('ready', () => {
 	console.log(`${client.user.tag} bot is on`);
-	client.user.setActivity(`${PREFIX}help`, {
+	client.user.setActivity(`${PREFIX}join`, {
 			type: 'WATCHING'
 		})
 		.then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
