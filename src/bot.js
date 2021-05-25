@@ -1,5 +1,6 @@
 require("dotenv").config();
 const ytdl = require('ytdl-core');
+const fs = require('fs');
 
 const {
 	Client
@@ -40,7 +41,7 @@ client.on('message', (message) => {
 		voice.channel.join().then(connection => {
 
 			//const stream = ytdl(`https://www.youtube.com/watch?v=MFw3E6X5aoA`, { filter : 'audioonly' });
-			const stream = 'joined.mp3';
+			const stream = `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=Hi I am ${client.user.username}&tl=en`;
 			const dispatcher = connection.play(stream, streamOptions);
 			client.on('voiceStateUpdate', (oldMember, newMember) => {
 				if (oldMember.serverDeaf !== null) {
@@ -49,14 +50,12 @@ client.on('message', (message) => {
 					}
 				}
 				if (oldMember.channelID === null && newMember.channelID !== null) {
-					console.log("User joined!");
 					//const stream = ytdl(`https://www.youtube.com/watch?v=MFw3E6X5aoA`, { filter : 'audioonly' });
-					const stream = 'joined.mp3';
+					const stream = `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=Hi ${oldMember.member.user.username}&tl=en`;
 					const dispatcher = connection.play(stream, streamOptions);
 				} else {
-					console.log("User left!");
 					//const stream = ytdl(`https://www.youtube.com/watch?v=mN7ai6ql8bQ`, { filter : 'audioonly' });
-					const stream = 'left.mp3';
+					const stream = `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=Bye ${oldMember.member.user.username}&tl=en`;
 					const dispatcher = connection.play(stream, streamOptions);
 				}
 				if (oldMember.guild.channels.cache.get(oldMember.channelID)) {
