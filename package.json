@@ -16,7 +16,7 @@
     "dotenv": "^8.2.0",
     "ffmpeg": "^0.0.4",
     "fluent-ffmpeg": "^2.1.2",
-    "nodemon": "^2.0.7",
+    "nodemon": "^2.0.18",
     "ytdl-core": "^4.5.0"
   }
 }
