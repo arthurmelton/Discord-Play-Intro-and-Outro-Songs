@@ -17,6 +17,6 @@
     "ffmpeg": "^0.0.4",
     "fluent-ffmpeg": "^2.1.2",
     "nodemon": "^2.0.7",
-    "ytdl-core": "^4.5.0"
+    "ytdl-core": "^4.11.0"
   }
 }
